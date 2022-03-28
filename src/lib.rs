@@ -1,3 +1,8 @@
+//! # This project is for training and demonstration
+//!
+//! `minigrep` is a collection of function similar to grep cmd 
+//! given an expression and a file name, minigrep extract lines with the "expr"
+
 
 use std::error::Error;
 use std::fs;
@@ -40,7 +45,21 @@ pub fn run(config: Config) -> Result<(),Box<dyn Error>>{
 
     Ok(())
 }
-
+/// Search one expr in the line
+/// 
+/// Example 
+/// ```
+/// let query = "rust";
+/// let contents = "\
+//Rust:
+///safe, fast, productive.
+///Pick three.
+///Trust me.";
+/// 
+/// assert_eq!(
+/// vec!["safe, fast, productive."],
+/// search(query, contents)
+/// )
 pub fn search<'a>(query : &str,contents: &'a str) -> Vec<&'a str>{
     
     contents.lines()
